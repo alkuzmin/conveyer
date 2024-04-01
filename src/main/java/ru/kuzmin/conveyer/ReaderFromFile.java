@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 @Component
+@Loggable
 public class ReaderFromFile implements ConveyerDataReader {
 
     public ReaderFromFile( @Value("${spring.application.pathinput}") String path) {
