@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 @Component
+@Loggable
 public class WriterToFile implements ConveyerDataWriter {
     public WriterToFile( @Value("${spring.application.pathoutput}") String path) {
         this.pathoutput = path;
