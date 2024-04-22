@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.math.BigInteger;
 import java.util.Scanner;
 
 @Component
@@ -29,7 +30,7 @@ public class ReaderFromFile implements ConveyerDataReader {
     private String pathinput;
 
     @Override
-    public String read() {
+    public Artefact read(BigInteger id) {
         System.out.println("inputpath = "+ getPath());
         String res = "";
         try {
@@ -45,6 +46,6 @@ public class ReaderFromFile implements ConveyerDataReader {
             throw new RuntimeException(e);
         }
 
-        return res;
+        return new Artefact(res);
     }
 }

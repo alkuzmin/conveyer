@@ -10,7 +10,7 @@ public class WriterToDB implements ConveyerDataWriter {
     @Autowired
     ArtefactService serv;
     @Override
-    public void write(String str) {
-        serv.newArtefact(str);
+    public void write(Artefact a) {
+        serv.saveArtefact(a);
     }
 }

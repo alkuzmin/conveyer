@@ -19,6 +19,12 @@ public class ArtefactService {
         return a;
     }
 
+    Artefact saveArtefact(Artefact a)
+    {
+        repo.save(a);
+        return  a;
+    }
+
     Optional<Artefact> getArtefactbyId(BigInteger id)
     {
         return repo.findById(id);

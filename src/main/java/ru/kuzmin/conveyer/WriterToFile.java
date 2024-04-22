@@ -16,11 +16,11 @@ public class WriterToFile implements ConveyerDataWriter {
     private String pathoutput;
 
      @Override
-    public void write(String str) {
+    public void write(Artefact a) {
         FileWriter fw;
         try {
             fw = new FileWriter(pathoutput);
-            fw.write(str);
+            fw.write(a.name);
             fw.close();
         } catch (IOException e) {
             throw new RuntimeException(e);

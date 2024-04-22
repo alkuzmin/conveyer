@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ class Conveyer {
     @Setter
     @Getter
     @Autowired
-     @Qualifier("db")
+    @Qualifier("db")
     ConveyerDataReader dr;
     @Setter
     @Getter
@@ -25,10 +26,10 @@ class Conveyer {
     ConveyerDataWriter dw;
 
     @Autowired
-    public List<ConveyerDataChecker> checks;// = new ArrayList<>();
+    public List<ConveyerDataChecker> checks;
 
     public void perform() {
-        String arg = dr.read();
+        Artefact arg = dr.read(BigInteger.valueOf(1));
         for (ConveyerDataChecker chk : checks) {
             arg = chk.check(arg);
         }

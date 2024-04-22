@@ -7,7 +7,9 @@ import org.springframework.stereotype.Component;
 @Order(2)
 public class CheckerCaps implements ConveyerDataChecker {
     @Override
-    public String check(String str) {
-        return str.toUpperCase();
+    public Artefact check(Artefact a) {
+
+        a.name = a.name.toUpperCase();
+        return a;
     }
 }

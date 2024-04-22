@@ -9,13 +9,13 @@ import java.util.Arrays;
 @Order(1)
 public class CheckerSpaces implements ConveyerDataChecker {
     @Override
-    public String check(String str) {
+    public Artefact check(Artefact a) {
         String res = "";
-        for (String s : str.split("\n")) {
+        for (String s : a.name.split("\n")) {
             res += s.trim();
             res += "\n";
         }
-
-        return res;
+        a.setName(res);
+        return a;
     }
 }
