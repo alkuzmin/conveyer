@@ -1,5 +1,6 @@
 package ru.kuzmin.conveyer.datawriters;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import ru.kuzmin.conveyer.Loggable;
@@ -9,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 @Component
+@Qualifier("file")
 @Loggable
 public class WriterToFile implements ConveyerDataWriter {
     public WriterToFile( @Value("${spring.application.pathoutput}") String path) {
