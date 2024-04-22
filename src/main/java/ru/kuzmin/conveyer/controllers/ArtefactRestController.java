@@ -34,7 +34,7 @@ public class ArtefactRestController {
         if (!opt.isPresent())
             throw new ArtefactNotFoundException("No such artefact");
         Artefact res = (Artefact)opt.get();
-        return  new ResponseEntity<Artefact>(res, new HttpHeaders(), HttpStatus.FOUND);
+        return  new ResponseEntity<Artefact>(res, new HttpHeaders(), HttpStatus.OK);
 
     }
 
