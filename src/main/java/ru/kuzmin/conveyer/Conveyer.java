@@ -29,7 +29,7 @@ class Conveyer {
     public List<ConveyerDataChecker> checks;
 
     public void perform() {
-        Artefact arg = dr.read(BigInteger.valueOf(1));
+        Artefact arg = dr.read(BigInteger.valueOf(2));
         for (ConveyerDataChecker chk : checks) {
             arg = chk.check(arg);
         }
