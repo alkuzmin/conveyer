@@ -1,13 +1,15 @@
-package ru.kuzmin.conveyer;
+package ru.kuzmin.conveyer.controllers;
 
 import lombok.SneakyThrows;
-import lombok.Value;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.kuzmin.conveyer.exceptions.ArtefactNotFoundException;
+import ru.kuzmin.conveyer.services.ArtefactService;
+import ru.kuzmin.conveyer.entities.Artefact;
 
 import java.math.BigInteger;
 import java.util.Optional;

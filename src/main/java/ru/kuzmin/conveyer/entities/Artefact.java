@@ -1,4 +1,4 @@
-package ru.kuzmin.conveyer;
+package ru.kuzmin.conveyer.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

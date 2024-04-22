@@ -1,7 +1,9 @@
-package ru.kuzmin.conveyer;
+package ru.kuzmin.conveyer.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.kuzmin.conveyer.entities.Artefact;
+import ru.kuzmin.conveyer.repos.ArtefactRepo;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -11,7 +13,7 @@ import java.util.Optional;
 public class ArtefactService {
 
    @Autowired
-    ArtefactRepo repo;
+   ArtefactRepo repo;
     Artefact newArtefact(String name)
     {
         Artefact a = new Artefact(name);
@@ -19,13 +21,13 @@ public class ArtefactService {
         return a;
     }
 
-    Artefact saveArtefact(Artefact a)
+    public Artefact saveArtefact(Artefact a)
     {
         repo.save(a);
         return  a;
     }
 
-    Optional<Artefact> getArtefactbyId(BigInteger id)
+    public Optional<Artefact> getArtefactbyId(BigInteger id)
     {
         return repo.findById(id);
 

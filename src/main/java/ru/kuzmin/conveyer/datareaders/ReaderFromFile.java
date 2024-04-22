@@ -1,11 +1,9 @@
-package ru.kuzmin.conveyer;
+package ru.kuzmin.conveyer.datareaders;
 
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
+import ru.kuzmin.conveyer.Loggable;
+import ru.kuzmin.conveyer.entities.Artefact;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -5,9 +5,12 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import ru.kuzmin.conveyer.checkers.ConveyerDataChecker;
+import ru.kuzmin.conveyer.datareaders.ConveyerDataReader;
+import ru.kuzmin.conveyer.datawriters.ConveyerDataWriter;
+import ru.kuzmin.conveyer.entities.Artefact;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
