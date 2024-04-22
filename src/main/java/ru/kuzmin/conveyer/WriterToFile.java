@@ -12,22 +12,10 @@ public class WriterToFile implements ConveyerDataWriter {
     public WriterToFile( @Value("${spring.application.pathoutput}") String path) {
         this.pathoutput = path;
     }
-//    public WriterToFile (String path) {
-//        this.path = path;
-//    }
-   // @Value("${spring.application.pathoutput}")
+
     private String pathoutput;
 
-
-//    public String getPath() {
-//        return path;
-//    }
-
-//    public void setPath(String path) {
-//        this.path = path;
-//    }
-
-    @Override
+     @Override
     public void write(String str) {
         FileWriter fw;
         try {

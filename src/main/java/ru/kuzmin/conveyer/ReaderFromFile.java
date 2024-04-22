@@ -18,15 +18,6 @@ public class ReaderFromFile implements ConveyerDataReader {
     public ReaderFromFile( @Value("${spring.application.pathinput}") String path) {
         this.pathinput = path;
     }
-//    public ReaderFromFile(String path) {
-//        this.path = path;
-//    }
-
-    //public ReaderFromFile(String path) {
-    //    this.path = path;
-    //}
-
-   // public ReaderFromFile(){};
 
 
 
@@ -34,12 +25,7 @@ public class ReaderFromFile implements ConveyerDataReader {
         return pathinput;
     }
 
-//    public void setPath(String path) {
-//        this.path = path;
-//    }
 
-
-    //@Value("${spring.application.pathinput}")
     private String pathinput;
 
     @Override
