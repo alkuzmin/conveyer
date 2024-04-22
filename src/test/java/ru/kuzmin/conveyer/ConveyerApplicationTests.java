@@ -1,19 +1,26 @@
 package ru.kuzmin.conveyer;
 
 
+import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.context.ApplicationContext;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultMatcher;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import ru.kuzmin.conveyer.controllers.ArtefactRestController;
 import ru.kuzmin.conveyer.datareaders.ReaderFromFile;
 import ru.kuzmin.conveyer.datawriters.WriterToFile;
 import ru.kuzmin.conveyer.entities.Artefact;
@@ -23,10 +30,20 @@ import ru.kuzmin.conveyer.services.ArtefactService;
 import java.math.BigInteger;
 import java.util.Optional;
 
+import io.restassured.RestAssured.*;
+import io.restassured.matcher.RestAssuredMatchers.*;
+import org.hamcrest.Matchers.*;
+
+import static io.restassured.RestAssured.when;
+import static net.bytebuddy.matcher.ElementMatchers.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
 
 @SpringBootApplication(scanBasePackages = "ru.kuzmin.conveyer")
 @SpringBootTest (webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = {ru.kuzmin.conveyer.services.ArtefactService.class, ru.kuzmin.conveyer.repos.ArtefactRepo.class})
 @Testcontainers
+
 class ConveyerApplicationTests {
 
 	@Container
@@ -79,4 +96,17 @@ class ConveyerApplicationTests {
 		{Assertions.fail("No res from db");}
 	}
 
-}
+
+	@LocalServerPort
+	private int port;
+	@Test
+
+	void shouldCreateArtefactFromREST()
+	{
+		RestAssured.baseURI = "http://localhost";
+		RestAssured.port = port;
+		when().request("GET", "/artefact/5").then().statusCode(302);
+    }
+	}
+
+
