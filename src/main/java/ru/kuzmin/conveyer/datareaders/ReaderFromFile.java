@@ -1,5 +1,6 @@
 package ru.kuzmin.conveyer.datareaders;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import ru.kuzmin.conveyer.Loggable;
@@ -11,6 +12,7 @@ import java.math.BigInteger;
 import java.util.Scanner;
 
 @Component
+@Qualifier("file")
 @Loggable
 public class ReaderFromFile implements ConveyerDataReader {
 
