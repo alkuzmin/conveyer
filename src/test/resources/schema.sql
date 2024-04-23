@@ -4,4 +4,9 @@ CREATE TABLE IF NOT EXISTS artefact
 	name varchar(80)
 );
 
-insert into artefact (name) values ('tree'), ('crystal'), ('tree'),('tree'),('box');
+insert into artefact (name)
+values ('tree'),
+('crystal'),
+('tree'),
+('tree'),
+('box');

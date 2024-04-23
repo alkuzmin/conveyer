@@ -26,12 +26,11 @@ import java.util.Optional;
 
 
 import static io.restassured.RestAssured.when;
+import static org.hamcrest.Matchers.containsString;
 
 
 
-//@SpringBootApplication(scanBasePackages = "ru.kuzmin.conveyer")
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = {ConveyerApplication.class})
-@AutoConfigureWebTestClient
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT/*, classes = {ConveyerApplication.class}*/)
 @Testcontainers
 class ConveyerApplicationTests {
 
@@ -101,7 +100,9 @@ class ConveyerApplicationTests {
     {
         RestAssured.baseURI = "http://localhost";
         RestAssured.port = port;
-        when().request("GET", "/artefact/5").then().statusCode(200);
+        when().request("GET", "/artefact/5")
+                .then().body(containsString("box"))
+                .statusCode(200);
     }
 
 
